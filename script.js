@@ -9,29 +9,22 @@ result.textContent = "";
 const numButtons = document.querySelectorAll(".number");
 numButtons.forEach((button) => {
   button.addEventListener("click", (b) => {
-    if (operator == null) {
-      numberA = +b.target.textContent;
       result.textContent = result.textContent + b.target.textContent;
-    } else if(operator != null && numberB == null) {
-        result.textContent = +b.target.textContent;
-        numberB = +b.target.textContent;
-    } else {
-        numberB = numberB + b.target.textContent;
-        result.textContent = result.textContent + b.target.textContent;
-    }
   });
 });
 
 const operators = document.querySelectorAll(".operator");
 operators.forEach((button) => {
   button.addEventListener("click", (o) => {
-    result.textContent = o.target.textContent;
+    numberA = +result.textContent;
+    result.textContent = "";
     operator = o.target.textContent;
   });
 });
 
 const equalButton = document.getElementById("equal");
 equalButton.addEventListener("click", () => {
+  numberB = +result.textContent;
   result.textContent = `${operate()}`;
   operator = null;
 });
