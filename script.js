@@ -9,8 +9,15 @@ result.textContent = "";
 const numButtons = document.querySelectorAll(".number");
 numButtons.forEach((button) => {
   button.addEventListener("click", (b) => {
-      result.textContent = result.textContent + b.target.textContent;
+    result.textContent = result.textContent + b.target.textContent;
   });
+});
+
+const dotButton = document.getElementById("dot");
+dotButton.addEventListener("click", () => {
+  if (!result.textContent.includes(".")) {
+    result.textContent = result.textContent + ".";
+  }
 });
 
 const operators = document.querySelectorAll(".operator");
